@@ -49,7 +49,7 @@ conda env create -f environment.yml
 
 4. Activate the environment:
 ```bash
-conda activate eval-dashboard
+conda activate code-eval
 ```
 
 ### Configuration
@@ -72,9 +72,9 @@ HF_TOKEN=your_token_here
 python scripts/run_sweep.py
 ```
 
-2. Run a single benchmark and model, for example, HumanEval (50 problems) with DeepSeek-Coder and k=1:
+2. Run a single benchmark and model, for example, MBPP (50 problems) with DeepSeek-Coder and k=3:
 ```bash
-python scripts/run_single_eval.py --benchmark humaneval --model deepseek --k 1 --num_problems 50 --temperature 0.2 --max_length 512
+python scripts/run_single_eval.py --benchmark mbpp --model deepseek --k 3 --num_problems 50 --temperature 0.2 --max_length 512
 ```
 
 3. View the results in the dashboard (using the results saved in `streamlit_data/`):
