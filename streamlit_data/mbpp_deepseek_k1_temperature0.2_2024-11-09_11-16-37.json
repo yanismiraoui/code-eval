@@ -1,0 +1,7 @@
+{
+  "pass@k": 0.3,
+  "num_problems": 10,
+  "model": "deepseek",
+  "k": 1,
+  "temperature": 0.2
+}

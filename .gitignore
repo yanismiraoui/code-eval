@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+.env
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+logs/
+*.log
+.coverage
+htmlcov/
+.pytest_cache/
+tasks.txt
+
+# Model files and cache
+*.pt
+*.pth
+.cache/ 
+
+# Local results folder
+results/
+
+# Temporary completions file
+temp_completions.jsonl
+temp_completions.jsonl_results.jsonl
+temp_completions_save.jsonl
+temp_problems_multiple/
