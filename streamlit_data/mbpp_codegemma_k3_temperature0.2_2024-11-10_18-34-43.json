@@ -1,0 +1,7 @@
+{
+  "pass@k": 0.52,
+  "num_problems": 50,
+  "model": "codegemma",
+  "k": 3,
+  "temperature": 0.2
+}
