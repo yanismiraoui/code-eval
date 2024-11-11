@@ -109,6 +109,7 @@ def main():
             color='Model',
             barmode='group',
             facet_col='k',
+            category_orders={"k": sorted(selected_k)},
             title='Model Performance Across Benchmarks',
             labels={'Pass@k': 'Pass@k Score', 'Benchmark': 'Benchmark Name'},
         )
@@ -137,18 +138,22 @@ def main():
                 r=model_data['Pass@k'],
                 theta=model_data['Benchmark'],
                 name=f"{model} (k={k})",
+                mode='markers',
                 marker=dict(
                     size=20,
-                    symbol='circle'
+                    symbol='circle',
+                    line=dict(
+                        width=2,
+                        color='white'
+                    )
                 ),
-                line=dict(width=3),
                 hovertemplate='%{r:.3f}<extra></extra>'
             ))
         
         fig.update_layout(
             polar=dict(
                 radialaxis=dict(
-                    range=[0, 1],
+                    range=[0, 60],
                     showline=True,
                     gridcolor='rgba(255,255,255,0.3)',
                     color='white',
@@ -166,7 +171,7 @@ def main():
             legend=dict(
                 font=dict(size=16)
             ),
-            title=f"Model Comparison (k={k})",
+            title=f"Model Comparison Pass@{k}",
             height=700,
             paper_bgcolor='rgba(0,0,0,0)',
             plot_bgcolor='rgba(0,0,0,0)'

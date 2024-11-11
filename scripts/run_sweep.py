@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 
 # Configuration
 MODELS = ['codegemma', 'deepseek']
-BENCHMARKS = ['humaneval', 'mbpp']
+BENCHMARKS = ['mbpp', 'humaneval', 'multiple']
 K_VALUES = [1, 3, 5]
 
 def get_evaluator(benchmark: str, model: str, k: int, num_problems: int = None, temperature: float = 0.2, max_length: int = 512):

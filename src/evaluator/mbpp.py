@@ -10,6 +10,7 @@ class MBPPEvaluator(BaseEvaluator):
         super().__init__(model_name, temperature, max_length, k, num_problems, num_samples)
 
     def load_dataset(self):
+        """ Load the MBPP dataset """
         # Data source: https://github.com/deepseek-ai/DeepSeek-Coder/blob/main/Evaluation/MBPP/data/mbpp.jsonl
         mbpp_url = "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-Coder/main/Evaluation/MBPP/data/mbpp.jsonl"
         response = requests.get(mbpp_url)
@@ -18,6 +19,7 @@ class MBPPEvaluator(BaseEvaluator):
 
 
     def evaluate(self) -> Dict[str, Any]:
+        """ Evaluate the model on the MBPP dataset """
         if not self.model or not self.problems:
             self.load_model()
             self.load_dataset()

@@ -3,6 +3,7 @@ from unittest.mock import Mock, patch
 from src.evaluator.human_eval import HumanEvalEvaluator
 
 def test_human_eval_initialization():
+    """ Test the initialization of the HumanEvalEvaluator """
     evaluator = HumanEvalEvaluator(
         model_name="codegemma",
         k=1,
@@ -15,6 +16,7 @@ def test_human_eval_initialization():
     assert evaluator.temperature == 0.2
 
 def test_human_eval_dataset_loading():
+    """ Test the loading of the HumanEval dataset """
     evaluator = HumanEvalEvaluator(
         model_name="codegemma",
         k=1,
@@ -27,6 +29,7 @@ def test_human_eval_dataset_loading():
     assert all('prompt' in p for p in evaluator.problems.values())
 
 def test_human_eval_single_problem_evaluation():
+    """ Test the evaluation of a single problem """
     with patch('src.evaluator.human_eval.HumanEvalEvaluator.generate_completion') as mock_generate:
         # Mock a successful code completion
         mock_generate.return_value = """def add(a, b):

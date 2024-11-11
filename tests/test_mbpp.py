@@ -3,6 +3,7 @@ from unittest.mock import Mock, patch
 from src.evaluator.mbpp import MBPPEvaluator
 
 def test_mbpp_initialization():
+    """ Test the initialization of the MBPPEvaluator """
     evaluator = MBPPEvaluator(
         model_name="deepseek",
         k=1,
@@ -15,6 +16,7 @@ def test_mbpp_initialization():
     assert evaluator.temperature == 0.2
 
 def test_mbpp_dataset_loading():
+    """ Test the loading of the MBPP dataset """
     evaluator = MBPPEvaluator(
         model_name="deepseek",
         k=1,
@@ -27,6 +29,7 @@ def test_mbpp_dataset_loading():
     assert all('text' in p and 'test_list' in p for p in evaluator.problems)
 
 def test_mbpp_single_problem_evaluation():
+    """ Test the evaluation of a single problem """
     with patch('src.evaluator.mbpp.MBPPEvaluator.generate_completion') as mock_generate:
         # Mock a successful code completion
         mock_generate.return_value = """

@@ -10,6 +10,7 @@ from src.config import HF_TOKEN, MODEL_PATHS, DEFAULT_MAX_LENGTH, DEFAULT_TEMPER
 from ..utils.device import get_device
 
 class StopOnTokens(StoppingCriteria):
+    """ Stopping criteria for generation """
     def __init__(self, stop_ids_list: List[int]):
         self.stop_ids_list = stop_ids_list
 
@@ -22,12 +23,14 @@ class StopOnTokens(StoppingCriteria):
         return False
 
 class BaseEvaluator(ABC):
+    """ Base class for evaluators """
     def __init__(self, model_name: str, temperature: float = DEFAULT_TEMPERATURE, max_length: int = DEFAULT_MAX_LENGTH, k: int = 1, num_problems: int = DEFAULT_NUM_PROBLEMS, num_samples: int = DEFAULT_NUM_SAMPLES):
         """
         Initialize base evaluator
         Args:
             model_name: Either 'deepseek' or 'codegemma'
             temperature: Temperature for generation (default: 0.2)
+            max_length: Maximum length for generation (default: 512)
             k: k value for Pass@k metric (1, 3, or 5) (default: 1)
             num_problems: Number of problems to evaluate (default: 50)
             num_samples: Number of samples to evaluate (default: 1)

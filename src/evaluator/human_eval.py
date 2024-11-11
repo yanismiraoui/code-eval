@@ -12,11 +12,13 @@ class HumanEvalEvaluator(BaseEvaluator):
         super().__init__(model_name, temperature, max_length, k, num_problems, num_samples)
 
     def load_dataset(self):
+        """ Load the HumanEval dataset """
         self.problems = read_problems()
         if self.num_problems:
             self.problems = {k: v for k, v in list(self.problems.items())[:self.num_problems]}
 
     def evaluate(self) -> Dict[str, Any]:
+        """ Evaluate the model on the HumanEval dataset """
         if not self.model or not self.problems:
             self.load_model()
             self.load_dataset()

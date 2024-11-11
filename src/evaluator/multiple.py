@@ -16,6 +16,7 @@ class MultiplEEvaluator(BaseEvaluator):
         super().__init__(model_name, temperature, max_length, k, num_problems, num_samples)
 
     def load_dataset(self):
+        """ Load the MultiPL-E dataset """
         self.problems = []
         # Load all datasets
         for name in DATASET_NAMES:
@@ -28,6 +29,7 @@ class MultiplEEvaluator(BaseEvaluator):
             self.problems = self.problems[:self.num_problems]
 
     def evaluate(self) -> Dict[str, Any]:
+        """ Evaluate the model on the MultiPL-E dataset """
         if not self.model or not self.problems:
             self.load_model()
             self.load_dataset()
