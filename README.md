@@ -34,12 +34,12 @@ You can also run the dashboard locally by running `streamlit run src/dashboard/a
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yanismiraoui/CodeEval.git
+git clone https://github.com/yanismiraoui/code-eval.git
 ```
 
 2. Navigate to the project directory:
 ```bash
-cd CodeEval
+cd code-eval
 ```
 
 3. Create conda environment:
