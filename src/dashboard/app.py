@@ -111,7 +111,7 @@ def main():
             facet_col='k',
             category_orders={"k": sorted(selected_k)},
             title='Model Performance Across Benchmarks',
-            labels={'Pass@k': 'Pass@k Score', 'Benchmark': 'Benchmark Name'},
+            labels={'Pass@k': 'Pass@k Score', 'Benchmark': 'Benchmark'},
         )
         fig.update_layout(height=500)
         st.plotly_chart(fig, use_container_width=True)
@@ -134,19 +134,27 @@ def main():
         
         for model in selected_models:
             model_data = k_filtered[k_filtered['Model'] == model]
+            # Add a copy of the first point at the end to close the shape
+            r_values = model_data['Pass@k'].tolist()
+            theta_values = model_data['Benchmark'].tolist()
+            if k == 1:  # Only for k=1
+                r_values.append(r_values[0])
+                theta_values.append(theta_values[0])
+                
             fig.add_trace(go.Scatterpolar(
-                r=model_data['Pass@k'],
-                theta=model_data['Benchmark'],
+                r=r_values,
+                theta=theta_values,
                 name=f"{model} (k={k})",
-                mode='markers',
+                mode='markers+lines' if k == 1 else 'markers',
                 marker=dict(
-                    size=20,
+                    size=12,
                     symbol='circle',
                     line=dict(
                         width=2,
                         color='white'
                     )
                 ),
+                line=dict(width=3) if k == 1 else dict(width=0),
                 hovertemplate='%{r:.3f}<extra></extra>'
             ))
         
