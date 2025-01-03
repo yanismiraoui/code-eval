@@ -1,8 +1,8 @@
-# CodeEval Dashboard 📊
+# CodeEval Leaderboard 📊
 
 A dashboard for comparing DeepSeek-Coder and CodeGemma models on various code benchmarks using Pass@k metrics.
 
-[Dashboard](https://code-eval.replit.app/)
+[Leaderboard](https://code-eval.replit.app/)
 
 *Note: The evaluation results are limited due to lack of access to high-end GPUs.*
 
